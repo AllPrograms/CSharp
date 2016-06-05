@@ -1,0 +1,14 @@
+static void Main(string[] args)
+        {
+            Console.WriteLine("Program to convert binary to decimal");
+            string binaryNumber = Console.ReadLine();
+            int decimalNumber = 0;
+            string reverseBinary = new string(binaryNumber.ToCharArray().Reverse().ToArray());
+            for (int i = 0; i <= reverseBinary.Length - 1; i++)
+            {
+                var power =Math.Pow(2, Convert.ToDouble(i));
+                decimalNumber = decimalNumber + Convert.ToInt32(reverseBinary[i].ToString())* Convert.ToInt32(power);
+            }
+            Console.WriteLine(decimalNumber);
+            Console.ReadLine();
+        }

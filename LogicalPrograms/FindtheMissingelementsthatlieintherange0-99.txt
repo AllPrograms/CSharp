@@ -1,0 +1,46 @@
+ static void Main(string[] args)
+        {
+            Console.WriteLine("Find the Missing elements that lie in the range 0-99");
+            int limit = 99;
+          //  Dictionary<int, bool> seen = new Dictionary<int, bool>(100);
+            bool[] seen= new bool[100];
+            int[] arr = { 0, 10,835, 88, 99, 235, 357 };
+            for (int k = 0; k < arr.Length; k++)
+            {
+                if (arr[k] < limit)
+                {
+                    seen[arr[k]]= true;
+                }
+            }
+            int i = 0,end=0;
+            while(i<limit)
+            {
+                if(seen[i]==false)
+                {
+                    int j = i + 1;
+                    while(j<limit && seen[j]==false)
+                    {
+                        j++;
+                       
+                    }
+                    if (i + 1 == j)
+                    {
+                        Console.WriteLine(i);
+                    }
+                    else {
+                        if (j != limit)
+                        {
+                            end = j - 1;
+                        }
+                        else
+                        {
+                            end = j;
+                        }
+                        Console.WriteLine(i + "-" + end); }
+                    i = j;
+
+                }
+                i++;
+            }
+            Console.ReadLine();
+        }

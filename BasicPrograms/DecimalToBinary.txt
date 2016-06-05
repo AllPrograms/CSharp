@@ -1,0 +1,15 @@
+static void Main(string[] args)
+        {
+            Console.WriteLine("Program to convert a number from decimal to binary ");
+            int decimalNumber = Convert.ToInt32(Console.ReadLine());
+            string binaryNumber = String.Empty;
+            int temp = decimalNumber;
+            while(temp != 0 )
+            {
+                binaryNumber += temp % 2;
+                temp = temp / 2;
+            }
+            Console.WriteLine("The decimal number given is {0} and its corresponding binary number is {1}", decimalNumber, new string(binaryNumber.ToCharArray().Reverse().ToArray()));
+            
+            Console.ReadLine();
+        }

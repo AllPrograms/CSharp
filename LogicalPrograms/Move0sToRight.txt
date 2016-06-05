@@ -1,0 +1,36 @@
+   static void Main(string[] args)
+        {
+            Console.WriteLine("Move All 0's to End and don't alter the sequence of other numbers");
+            List<int> arr = new List<int>();
+            int n = 0, count = 0, zeroCount = 0;
+            Console.WriteLine("Enter the array");
+            n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the elements");
+            for (int i = 0; i < n; i++)
+            {
+              arr.Add(Convert.ToInt32(Console.ReadLine()));
+            }
+            Console.WriteLine("After Sorting");
+            for (int i = 0; i < arr.Count; i++)
+            {
+                if(arr[i]!=0)
+                {
+                    arr[count] = arr[i];
+                    count++;
+                }
+                else
+                {
+                    zeroCount += 1;
+                }
+            }
+            while(zeroCount>0)
+            {
+                arr[count++] = 0;
+                zeroCount--;
+            }
+            for (int i = 0; i < arr.Count; i++)
+            {
+                Console.WriteLine(arr[i]);
+            }
+            Console.ReadLine();
+        }

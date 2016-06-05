@@ -1,0 +1,26 @@
+static void Main(string[] args)
+        {
+            Console.WriteLine("Find the element whose sum is close to 0");
+            int[] arr = { 1, 2, 3, 4, -1 };
+            Dictionary<string, int> storeLeastValue = new Dictionary<string, int>();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = i+1; j < arr.Length; j++)
+                {
+                    int result = arr[i] - arr[j];
+                    storeLeastValue.Add(Convert.ToString(arr[i]) + "-" + Convert.ToString(arr[j]), result);
+                }
+            }
+       
+            var min = storeLeastValue.TakeWhile(p => p.Value < 0).FirstOrDefault();
+            var max = storeLeastValue.TakeWhile(p => p.Value > 0).FirstOrDefault();
+            if(min.Value>max.Value||min.Key=="" )
+            {
+                Console.WriteLine("The minimum sum between 2 values {0} is {1}", max.Key, max.Value);
+            }
+            else if(max.Value > min.Value || max.Key == "")
+            {
+                Console.WriteLine("The minimum sum between 2 values {0} is {1}", min.Key, min.Value);
+            }
+            Console.ReadLine();
+        }

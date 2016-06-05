@@ -1,0 +1,17 @@
+static void Main(string[] args)
+        {
+            Console.WriteLine("Factorial of a given Number");
+            int fact = Convert.ToInt32(Console.ReadLine());
+            int factorial = 1;
+            if (fact == 0)
+            {
+                factorial = 1;
+            }
+            while (fact>0)
+            {
+                factorial = factorial * fact;
+                fact--;
+            }
+            Console.WriteLine("The factorial of the given number is {0}",factorial);
+            Console.ReadLine();
+        }

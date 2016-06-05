@@ -1,0 +1,55 @@
+        static void Main(string[] args)
+        {
+            Console.WriteLine("To find the missing element in the array");
+            int[] arr1 = { 1, 2, 3, 4, 5 };
+            int[] arr2 = { 1, 3, 4,5 };
+            int m = arr1.Length;
+            int n = arr2.Length;
+            findMissing(arr1, arr2, m, n);
+            Console.ReadLine();
+        }
+        static void findMissing(int[] arr1, int[] arr2, int m, int n)
+        {
+            int result = 0;
+            if (n < m)
+            {
+                result = findMissingEle(arr1, arr2, m);
+                Console.WriteLine("The missing element in array2 is {0}", result);
+            }
+            else if (m < n)
+            {
+                result = findMissingEle(arr2, arr1, n);
+                Console.WriteLine("The missing element in array1 is {0}", result);
+            }
+            if (m == n)
+            {
+
+            }
+        }
+        static int findMissingEle(int[] arr1, int[] arr2, int n)
+        {
+            if (n == 1)
+            {
+                return arr1[0];
+            }
+            if (arr1[0] != arr2[0])
+            {
+                return arr1[0];
+            }
+            int low = 0, high = n - 1, mid = 0;
+            while (low < high)
+            {
+                mid = (low + high) / 2;
+                if (arr1[mid] == arr2[mid])
+                {
+                    low = mid;
+                }
+                else
+                {
+                    high = mid;
+                }
+                if (low == high - 1)
+                    break;
+            }
+            return arr1[high];
+        }

@@ -1,0 +1,19 @@
+static void Main(string[] args)
+        {
+            Console.WriteLine("Fibonacci of a given number");
+            int input = Convert.ToInt32(Console.ReadLine());
+            int firstValue = 0;
+            int secondValue = 1;
+            int furtherValue = 0;
+            Console.WriteLine("The fibonacci number is \n");
+            Console.WriteLine(firstValue);
+            Console.WriteLine(secondValue);
+            for (int i = 0; i < input; i++)
+            {
+                furtherValue = firstValue + secondValue;
+                firstValue = secondValue;
+                secondValue = furtherValue;
+                Console.WriteLine(furtherValue);
+            }
+            Console.ReadLine();
+        }

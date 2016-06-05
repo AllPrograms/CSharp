@@ -1,0 +1,27 @@
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Find the Maximum Odd Number of a number occuring in a array");
+            int[] arr = { 1, 2, 3, 4, 1,1 };
+            Dictionary<int, int> storeCount = new Dictionary<int, int>();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if(storeCount.Keys.Contains(arr[i]))
+                {
+                    int value = storeCount[arr[i]];
+                    storeCount[arr[i]] = value + 1;
+                }
+                else
+                {
+                    storeCount.Add(arr[i], 1);
+                }
+            }
+            var checkisOddthere = storeCount.Where(x => x.Value % 2 == 1).ToList();
+
+            if(checkisOddthere.Count>0)
+            {
+                var result = checkisOddthere.OrderByDescending(x => x.Value).FirstOrDefault();
+                Console.WriteLine("The number is {0} and number of times it occurs is {1}",result.Key,result.Value);
+            }
+            Console.ReadLine();
+        }
